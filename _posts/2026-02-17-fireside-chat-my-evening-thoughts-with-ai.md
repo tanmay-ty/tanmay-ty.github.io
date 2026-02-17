@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "🔥 Fireside Chat — My Evening Thoughts with AI"
-subtitle: "Post 1 — Why This Space Exists"
+title: ""Post 1 — Why This Space Exists""
+subtitle: "Fireside Chat is my evening space for slow, rigorous thinking about the biggest unsettled questions at the intersection of humans, AI, truth, and technological change. It’s not a hot-take or headline-reaction blog—it’s a long-form inquiry where I use an AI as a Socratic sparring partner to challenge assumptions, surface tensions, and avoid premature certainty. Each post explores one central question, why it matters now, a structured examination, what remains unresolved, and key takeaways. The goal isn’t to “win” debates—it’s to raise their quality."
 date: 2026-02-17 20:00:00 +0100
 ---
 
