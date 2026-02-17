@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand-wrap">
+        <p class="site-kicker">🔥 Fireside Chat</p>
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <p class="site-subtitle">A Long-Form Public Inquiry</p>
+      </div>
+    </header>
+
+    <main class="site-main">{{ content }}</main>
+
+    <footer class="site-footer">
+      <p>© {{ "now" | date: "%Y" }} Tanmay Chakraborty · Built with Jekyll</p>
+    </footer>
+  </body>
+</html>

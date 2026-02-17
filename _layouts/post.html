@@ -1,0 +1,15 @@
+---
+layout: default
+---
+{% assign words = content | strip_html | number_of_words %}
+{% assign reading_time = words | divided_by: 180 | plus: 1 %}
+
+<article class="chronicle">
+  <header class="chronicle-header">
+    <p class="chronicle-date">{{ page.date | date: "%B %d, %Y" }}</p>
+    <h1>{{ page.title }}</h1>
+    <p class="chronicle-meta"><strong>TL;DR:</strong> {{ page.subtitle | default: "A reflective inquiry on AI and society." }} · {{ reading_time }} min read · {{ page.inquiry_mode | default: "Distilled" }}</p>
+  </header>
+
+  <section class="chronicle-body">{{ content }}</section>
+</article>
