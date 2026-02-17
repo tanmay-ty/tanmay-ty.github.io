@@ -4,7 +4,7 @@ title: "Fireside Chat"
 ---
 <section class="library-shell" aria-label="Library archive">
   <header class="library-intro">
-    <h2>Library Archive</h2>
+    <h2>Current Discussions</h2>
     <p>Browse inquiries by logic — dialectical, distilled, or raw transcript.</p>
 
     <div class="library-controls">
