@@ -4,7 +4,7 @@ title: "Fireside Chat"
 ---
 <section class="library-shell" aria-label="Library archive">
   <header class="library-intro">
-    <h2>Current Discussions</h2>
+    <h2>Library Archive</h2>
     <p>Browse inquiries by logic — dialectical, distilled, or raw transcript.</p>
 
     <div class="library-controls">
@@ -29,7 +29,11 @@ title: "Fireside Chat"
         <p class="card-meta">🔥 {{ post.date | date: "%B %d, %Y" }} · {{ reading_time }} min.</p>
         <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p class="card-mode">{{ post.inquiry_mode | default: "Distilled" }}</p>
-        <p>{{ post.excerpt | strip_html | truncate: 280 }}</p>
+        {% if post.subtitle %}
+          <p class="card-tldr"><strong>TL;DR:</strong> {{ post.subtitle }}</p>
+        {% else %}
+          <p>{{ post.excerpt | strip_html | truncate: 280 }}</p>
+        {% endif %}
         <p><a class="read-link" href="{{ post.url | relative_url }}">Read post</a></p>
       </article>
     {% endfor %}

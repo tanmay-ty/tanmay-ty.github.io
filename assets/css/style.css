@@ -152,9 +152,8 @@ body {
   line-height: 1.1;
 }
 
-.chronicle-subtitle {
-  margin: 0.3rem 0;
-  font-style: italic;
+.card-tldr {
+  margin: 0.55rem 0 0.35rem;
   color: #3f3a32;
 }
 
@@ -173,41 +172,6 @@ body {
 .ai-dialogue * {
   font-family: "JetBrains Mono", "IBM Plex Mono", monospace;
   font-size: 0.96rem;
-}
-
-.engagement {
-  margin-top: 2.4rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.reactions-panel,
-.comments-panel {
-  border: 1px solid var(--line);
-  background: #fcfbf8;
-  border-radius: 12px;
-  padding: 1rem;
-}
-
-.like-button {
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  background: #fff;
-  padding: 0.5rem 0.9rem;
-  font: 600 0.95rem "JetBrains Mono", "IBM Plex Mono", monospace;
-  cursor: pointer;
-}
-
-.like-button.liked {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: #f6ece5;
-}
-
-.tiny-note {
-  color: var(--muted);
-  font-size: 0.95rem;
 }
 
 .sr-only {

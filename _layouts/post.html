@@ -4,50 +4,12 @@ layout: default
 {% assign words = content | strip_html | number_of_words %}
 {% assign reading_time = words | divided_by: 180 | plus: 1 %}
 
-<article class="chronicle" data-post-key="{{ page.url | slugify }}">
+<article class="chronicle">
   <header class="chronicle-header">
     <p class="chronicle-date">{{ page.date | date: "%B %d, %Y" }}</p>
     <h1>{{ page.title }}</h1>
-    {% if page.subtitle %}<p class="chronicle-subtitle">{{ page.subtitle }}</p>{% endif %}
-    <p class="chronicle-meta">TL;DR: {{ page.subtitle | default: "A reflective inquiry on AI and society." }} · {{ reading_time }} min read · {{ page.inquiry_mode | default: "Distilled" }}</p>
+    <p class="chronicle-meta"><strong>TL;DR:</strong> {{ page.subtitle | default: "A reflective inquiry on AI and society." }} · {{ reading_time }} min read · {{ page.inquiry_mode | default: "Distilled" }}</p>
   </header>
 
   <section class="chronicle-body">{{ content }}</section>
-
-  <section class="engagement" aria-label="Article engagement">
-    <div class="reactions-panel">
-      <h2>Reactions</h2>
-      <button id="like-button" class="like-button" type="button" aria-pressed="false">👍 Appreciate <span id="like-count">0</span></button>
-      <p class="tiny-note">Likes are saved per device/browser.</p>
-    </div>
-
-    <div class="comments-panel">
-      <h2>Comments</h2>
-      {% if site.giscus.enabled and site.giscus.repo != "" and site.giscus.repo_id != "" and site.giscus.category_id != "" %}
-        <script
-          src="https://giscus.app/client.js"
-          data-repo="{{ site.giscus.repo }}"
-          data-repo-id="{{ site.giscus.repo_id }}"
-          data-category="{{ site.giscus.category }}"
-          data-category-id="{{ site.giscus.category_id }}"
-          data-mapping="{{ site.giscus.mapping }}"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="{{ site.giscus.theme }}"
-          data-lang="{{ site.giscus.lang }}"
-          crossorigin="anonymous"
-          async
-        ></script>
-      {% else %}
-        <p class="tiny-note">
-          Persistent internet comments are not enabled yet. Configure <code>giscus</code> values in
-          <code>_config.yml</code> to activate public comments backed by GitHub Discussions.
-        </p>
-      {% endif %}
-    </div>
-  </section>
 </article>
-
-<script src="{{ '/assets/js/engagement.js' | relative_url }}" defer></script>

@@ -17,15 +17,3 @@ defaults:
     values:
       layout: "post"
       inquiry_mode: "Distilled"
-
-# Persistent comments with Giscus (GitHub Discussions)
-# Fill these values before deploying to enable internet-visible comments.
-giscus:
-  enabled: true
-  repo: ""
-  repo_id: ""
-  category: "General"
-  category_id: ""
-  mapping: "pathname"
-  theme: "light"
-  lang: "en"
