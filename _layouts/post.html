@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<article class="article" data-post-key="{{ page.url | slugify }}">
+  <header class="article-header">
+    <p class="article-kicker">{{ page.date | date: "%B %d, %Y" }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}<p class="article-subtitle">{{ page.subtitle }}</p>{% endif %}
+  </header>
+
+  <section class="article-body">{{ content }}</section>
+
+  <section class="article-engagement" aria-label="Article engagement">
+    <div class="reaction-box">
+      <h2>Reactions</h2>
+      <button id="like-button" class="like-button" type="button" aria-pressed="false">
+        👍 Like <span id="like-count">0</span>
+      </button>
+    </div>
+
+    <div class="comments-box">
+      <h2>Comments</h2>
+      <form id="comment-form" class="comment-form">
+        <label for="comment-name">Name</label>
+        <input id="comment-name" name="name" type="text" maxlength="60" required />
+
+        <label for="comment-message">Comment</label>
+        <textarea id="comment-message" name="message" rows="4" maxlength="1000" required></textarea>
+
+        <button type="submit">Post Comment</button>
+      </form>
+      <p class="comment-note">Comments and likes are stored in your browser for now.</p>
+      <ul id="comments-list" class="comments-list"></ul>
+    </div>
+  </section>
+
+  <hr />
+  <p class="article-signoff">Published in <strong>Fireside Chat</strong>.</p>
+</article>
+
+<script src="{{ '/assets/js/engagement.js' | relative_url }}" defer></script>
