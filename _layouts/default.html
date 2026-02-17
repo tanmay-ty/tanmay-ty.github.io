@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Title -->
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
 
-  <!-- Meta description (page > site fallback) -->
-  <meta
-    name="description"
-    content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | escape }}{% else %}Long-form essays and dialogues exploring AI, humanity, and the limits of knowledge.{% endif %}"
-  />
+    <meta
+      name="description"
+      content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | escape }}{% else %}Long-form essays and dialogues exploring AI, humanity, and the limits of knowledge.{% endif %}"
+    />
 
-  <!-- Robots -->
-  <meta name="robots" content="index,follow" />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/logo.png' | relative_url }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/logo.png' | relative_url }}" />
 
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/logo.png' | relative_url }}" />
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/logo.png' | relative_url }}" />
+    <meta name="theme-color" content="#0b0b0f" />
 
-  <!-- Theme color (optional) -->
-  <meta name="theme-color" content="#0b0b0f" />
+    <meta property="og:site_name" content="{{ site.title | escape }}" />
+    <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}" />
+    <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | escape }}{% else %}Long-form essays and dialogues exploring AI, humanity, and the limits of knowledge.{% endif %}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:image" content="{% if page.og_image %}{{ page.og_image | absolute_url }}{% elsif site.og_image %}{{ site.og_image | absolute_url }}{% else %}{{ '/assets/og.png' | absolute_url }}{% endif %}" />
 
-  <!-- Open Graph -->
-  <meta property="og:site_name" content="{{ site.title }}" />
-  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
-  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}" />
-  <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | escape }}{% else %}Long-form essays and dialogues exploring AI, humanity, and the limits of knowledge.{% endif %}" />
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:image" content="{% if page.og_image %}{{ page.og_image | absolute_url }}{% elsif site.og_image %}{{ site.og_image | absolute_url }}{% else %}{{ '/assets/og.png' | absolute_url }}{% endif %}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}" />
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | escape }}{% else %}Long-form essays and dialogues exploring AI, humanity, and the limits of knowledge.{% endif %}" />
+    <meta name="twitter:image" content="{% if page.og_image %}{{ page.og_image | absolute_url }}{% elsif site.og_image %}{{ site.og_image | absolute_url }}{% else %}{{ '/assets/og.png' | absolute_url }}{% endif %}" />
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}" />
-  <meta name="twitter:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | escape }}{% elsif site.description %}{{ site.description | strip_html | strip_newlines | escape }}{% else %}Long-form essays and dialogues exploring AI, humanity, and the limits of knowledge.{% endif %}" />
-  <meta name="twitter:image" content="{% if page.og_image %}{{ page.og_image | absolute_url }}{% elsif site.og_image %}{{ site.og_image | absolute_url }}{% else %}{{ '/assets/og.png' | absolute_url }}{% endif %}" />
-
-  <!-- Optional: JSON-LD (helps Google understand the site) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "{{ site.title | escape }}",
-      "url": "{{ '/' | absolute_url }}",
-      "description": "{% if site.description %}{{ site.description | strip_html | strip_newlines | escape }}{% else %}Long-form essays and dialogues exploring AI, humanity, and the limits of knowledge.{% endif %}",
-      "publisher": {
-        "@type": "Person",
-        "name": "Tanmay Chakraborty"
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ site.title | escape }}",
+        "url": "{{ '/' | absolute_url }}",
+        "description": "{% if site.description %}{{ site.description | strip_html | strip_newlines | escape }}{% else %}Long-form essays and dialogues exploring AI, humanity, and the limits of knowledge.{% endif %}",
+        "publisher": {
+          "@type": "Person",
+          "name": "Tanmay Chakraborty"
+        }
       }
-    }
-  </script>
+    </script>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-</head>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="brand-wrap">
+        <p class="site-kicker">🔥 Fireside Chat</p>
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <p class="site-subtitle">A Long-Form Public Inquiry</p>
+      </div>
+    </header>
+
+    <main class="site-main">{{ content }}</main>
+
+    <footer class="site-footer">
+      <p>© {{ "now" | date: "%Y" }} Tanmay Chakraborty · Built with Jekyll</p>
+    </footer>
+  </body>
 </html>
